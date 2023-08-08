@@ -1,16 +1,16 @@
 import cv2
 
 if __name__ == '__main__':
-    cam = cv2.VideoCapture(0)
 
-    while True:
+    cam = cv2.VideoCapture(0, cv2.CAP_DSHOW))
+    while cap.isOpened():
         check, frame = cam.read()
 
-        cv2.imshow('video', frame)
+        cv2.imshow('video stream', frame)
 
         key = cv2.waitKey(1)
-        if key == 27:
+        if cv2.waitKey(10) & 0xFF == ord('q'):
             break
 
-    cam.release()
+    cap.release()
     cv2.destroyAllWindows()
